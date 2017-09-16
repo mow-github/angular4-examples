@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
   address: Address;
 
   users: User[];
+  isEdit: boolean = false;
 
 
   constructor(private DataService: DataService) {
@@ -33,6 +34,7 @@ export class UserComponent implements OnInit {
       state: 'MA'
     };
 
+
     this.DataService.getUsers().subscribe((users) => {
       console.log(users);
       this.users = users;
@@ -45,6 +47,10 @@ export class UserComponent implements OnInit {
     console.log('you clicked on a button');
     this.name = 'Alfred';
     //this.hobbies.push('you added me dyn');
+  }
+
+  toggleEdit() {
+    this.isEdit = !this.isEdit; // toggle true/false.. used around form-tag
   }
 
 

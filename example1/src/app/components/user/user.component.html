@@ -6,13 +6,49 @@
 <div class="container">
   <h3>User component: </h3>
 
+
+  <div>
+
+    <button class="btn btn-success" (click)="toggleEdit()">Click me to Toggle edit user form</button>
+    <div *ngIf=isEdit>
+      <form>
+        <div>
+          <label for="name">Name: </label><br>
+          <input id="name" class="form-control" type="text" [(ngModel)]="name" name="name">
+        </div>
+        <div>
+          <label for="age">Age: </label><br>
+          <input id="age" class="form-control" type="number" [(ngModel)]="age" name="age">
+        </div>
+        <div>
+          <label for="email">Email: </label><br>
+          <input id="email" class="form-control" type="text" [(ngModel)]="email" name="email">
+        </div>
+        <div>
+          <label for="street">Street: </label><br>
+          <input id="street" class="form-control" type="text" [(ngModel)]="address.street" name="address.street">
+        </div>
+        <div>
+          <label for="city">City: </label><br>
+          <input id="city" class="form-control" type="text" [(ngModel)]="address.city" name="address.city">
+        </div>
+        <div>
+          <label for="state">State: </label><br>
+          <input id="state" class="form-control" type="text" [(ngModel)]="address.state" name="address.state">
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+
   <div>
     <h4>Test bind click event and update the name field</h4>
     <button class="btn btn-primary" (click)="onClick()">Click me: change the name Tom to Alfred</button>
   </div>
 
+  <h4>Test string interpolation {{ keyword }}</h4>
   <div class="row">
-    <h4>Test string interpolation {{ keyword }}</h4>
     <div class="card col-12">
       <div class="card-block">
         <h4 class="card-title">My name is: {{name}}. I'm {{age}} years old.</h4>
@@ -23,9 +59,8 @@
   </div>
 
 
-
+  <h4>fetch async user data</h4>
   <div class="row">
-    <h4>fetch async user data</h4>
     <div class="card col-6" *ngFor="let user of users; let i = index">
       <img class="card-img-top" src="http://placehold.it/150/92c952" alt="img">
       <div class="card-block">

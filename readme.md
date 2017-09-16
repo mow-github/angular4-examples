@@ -226,6 +226,79 @@ interface Address {
   </div>
 ```
 
+#### Instructions part 6
+```
+/*
+    Why: 2-way-binding ( update data in both directions ) using the ngModel syntax
+
+    What:
+    1. Bind a click event in the .html so it runs the toggleEdit method n the .ts.
+        a. set a: isEdit boolan variable and toggle the value when one calls the method.
+        b. bind it to a if-directive in the .html ( show/hide the user-form )
+
+    2. add the: [(ngModel)]="keyword" syntax to every inputfield ( 2-way-bind the data )
+
+    3. import and activate the FormsModule pkg
+
+//user.component.html
+
+  <div>
+
+    <button class="btn btn-success" (click)="toggleEdit()">Click me to Toggle edit user form</button>
+    <div *ngIf=isEdit>
+      <form>
+        <div>
+          <label for="name">Name: </label><br>
+          <input id="name" class="form-control" type="text" [(ngModel)]="name" name="name">
+        </div>
+        <div>
+          <label for="age">Age: </label><br>
+          <input id="age" class="form-control" type="number" [(ngModel)]="age" name="age">
+        </div>
+        <div>
+          <label for="email">Email: </label><br>
+          <input id="email" class="form-control" type="text" [(ngModel)]="email" name="email">
+        </div>
+        <div>
+          <label for="street">Street: </label><br>
+          <input id="street" class="form-control" type="text" [(ngModel)]="address.street" name="address.street">
+        </div>
+        <div>
+          <label for="city">City: </label><br>
+          <input id="city" class="form-control" type="text" [(ngModel)]="address.city" name="address.city">
+        </div>
+        <div>
+          <label for="state">State: </label><br>
+          <input id="state" class="form-control" type="text" [(ngModel)]="address.state" name="address.state">
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+// user.component.ts
+
+  isEdit: boolean = false;
+
+  toggleEdit() {
+    this.isEdit = !this.isEdit; // toggle true/false.. used around form-tag
+  }
+
+// app.module.ts
+
+import { FormsModule } from '@angular/forms';
+  ...
+  imports: [
+    FormsModule,
+    ...
+  ],
+  ...
+
+
+*/
+
+```
+
 #### Notes:
 * `example1 - example with some angular keywords and components, async req`
 
