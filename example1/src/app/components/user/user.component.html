@@ -4,9 +4,15 @@
 
 
 <div class="container">
+  <h3>User component: </h3>
+
+  <div>
+    <h4>Test bind click event and update the name field</h4>
+    <button class="btn btn-primary" (click)="onClick()">Click me: change the name Tom to Alfred</button>
+  </div>
 
   <div class="row">
-    <h2>User component: Test string interpolation {{ keyword }}</h2>
+    <h4>Test string interpolation {{ keyword }}</h4>
     <div class="card col-12">
       <div class="card-block">
         <h4 class="card-title">My name is: {{name}}. I'm {{age}} years old.</h4>
@@ -19,7 +25,7 @@
 
 
   <div class="row">
-    <h2>User component: fetch async user data</h2>
+    <h4>fetch async user data</h4>
     <div class="card col-6" *ngFor="let user of users; let i = index">
       <img class="card-img-top" src="http://placehold.it/150/92c952" alt="img">
       <div class="card-block">

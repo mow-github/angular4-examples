@@ -25,6 +25,8 @@
     What:
 
     1. add 2x child-components and try to add them to the parent component (app)
+
+    Note: add etc. bootstrap 4 cdn links to the root: index.html ( so we can style and use some classes ) !!
 */
 
 ng g component components/about        - create a about component + fix all imports etc
@@ -197,9 +199,32 @@ interface Address {
       </div>
     </div>
   </div>
-
 ```
 
+
+
+#### Instructions part 5
+```
+/*
+    What:
+
+    1. Bind a click event in the .html so it runs the onClick method and updates the name property in the .ts
+*/
+
+//user.components.ts
+
+  onClick() {
+    console.log('you clicked on a button');
+    this.name = 'Alfred';
+  }
+
+//user.component.html
+
+  <div>
+    <h4>Test bind click event and update the name field</h4>
+    <button class="btn btn-primary" (click)="onClick()">Click me: change the name Tom to Alfred</button>
+  </div>
+```
 
 #### Notes:
 * `example1 - example with some angular keywords and components, async req`

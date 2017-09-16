@@ -40,6 +40,14 @@ export class UserComponent implements OnInit {
 
   }
 
+
+  onClick() {
+    console.log('you clicked on a button');
+    this.name = 'Alfred';
+    //this.hobbies.push('you added me dyn');
+  }
+
+
 }
 
 interface Address {
