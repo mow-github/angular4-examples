@@ -14,9 +14,9 @@ export class UserComponent implements OnInit {
   age: number;
   email: string;      // any
   address: Address;
-
   users: User[];
   isEdit: boolean = false;
+  hobbies: string[]; // any[] number[]
 
 
   constructor(private DataService: DataService) {
@@ -40,6 +40,9 @@ export class UserComponent implements OnInit {
       this.users = users;
     });
 
+    this.hobbies = ['write code', 'watch movies', 'listen to music'];
+
+
   }
 
 
@@ -51,6 +54,16 @@ export class UserComponent implements OnInit {
 
   toggleEdit() {
     this.isEdit = !this.isEdit; // toggle true/false.. used around form-tag
+  }
+
+  addHobby(hobby) {
+    console.log(hobby);
+    this.hobbies.unshift(hobby);
+    return false;
+  }
+
+  deleteHobby(hobby) {
+    this.hobbies = this.hobbies.filter((item) => { return item !== hobby; });
   }
 
 

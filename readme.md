@@ -13,6 +13,7 @@
 #### Instructions:
 * [angular - quickstart guide](https://angular.io/guide/quickstart)
 * [angular-cli](https://github.com/angular/angular-cli)
+* [angular-basic-vid](https://www.youtube.com/watch?v=htPYk6QxacQ)
 * `npm install -g @angular/cli` - install the angular CLI ( command line interface )
 * `ng new <appName>`            - install the angular 4 boilerplate
 * `cd <appName>`                - go to the folder <appName>
@@ -298,6 +299,54 @@ import { FormsModule } from '@angular/forms';
 */
 
 ```
+
+
+#### Instructions part 7
+```
+/*
+    What:
+
+    1. Bind a click for add- delete- a hobby in the .html.
+     a. 2x methods in the .ts that adds a hobby to the hobbies array AND one that deletes a hobby item from the array
+*/
+
+// user.component.html
+
+  <div>
+    <form (submit)="addHobby(hobby.value)">
+      <div>
+        <label for="hobby">Hobby:</label>
+        <input id="hobby" class="form-control" type="text" #hobby>
+      </div>
+    </form>
+
+    <ul class="list-group">
+      <li class="list-group-item justify-content-between" *ngFor="let hobby of hobbies; let i = index">
+        {{i+1}} {{hobby}} <button class="btn btn-danger" (click)="deleteHobby(hobby)">X</button>
+      </li>
+    </ul>
+
+  </div>
+
+// user.component.ts
+
+  hobbies: string[]; // any[] number[]
+
+  ngOnInit() {
+    this.hobbies = ['todo1','todo2','todo3'];
+  }
+
+  addHobby(hobby) {
+    console.log(hobby);
+    this.hobbies.unshift(hobby);
+    return false;
+  }
+
+  deleteHobby(hobby) {
+    this.hobbies = this.hobbies.filter((item) => { return item !== hobby; });
+  }
+```
+
 
 #### Notes:
 * `example1 - example with some angular keywords and components, async req`

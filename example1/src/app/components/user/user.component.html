@@ -8,6 +8,22 @@
 
 
   <div>
+    <form (submit)="addHobby(hobby.value)">
+      <div>
+        <label for="hobby">Hobby:</label>
+        <input id="hobby" class="form-control" type="text" #hobby>
+      </div>
+    </form>
+
+    <ul class="list-group">
+      <li class="list-group-item justify-content-between" *ngFor="let hobby of hobbies; let i = index">
+        {{i+1}} {{hobby}} <button class="btn btn-danger" (click)="deleteHobby(hobby)">X</button>
+      </li>
+    </ul>
+
+  </div>
+
+  <div>
 
     <button class="btn btn-success" (click)="toggleEdit()">Click me to Toggle edit user form</button>
     <div *ngIf=isEdit>
