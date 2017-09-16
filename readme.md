@@ -348,6 +348,64 @@ import { FormsModule } from '@angular/forms';
 ```
 
 
+#### Instructions part 8
+```
+/*
+    What:
+
+    1. add a router so we can visit etc: /user or /about
+        a. import router pkg and set some allowed routes in the .ts file
+        b. add some nav-syntax in the .html, so we can click on a link + add the:
+            <router-outlet><router-outlet> syntax ( the container for every page )
+
+
+*/
+
+// app.module.ts
+
+    import { RouterModule, Routes } from '@angular/router';
+    const appRoutes: Routes = [
+      {path: 'user', component: UserComponent},
+      {path: 'about', component: AboutComponent}
+    ];
+    ...
+    imports: [
+    ...
+        RouterModule.forRoot(appRoutes)
+    ],
+    ...
+
+// app.component.html
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/user">User Page </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">About Page</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<router-outlet>
+</router-outlet>
+
+<!--<app-about></app-about>
+<app-user></app-user>-->
+
+```
+
 #### Notes:
 * `example1 - example with some angular keywords and components, async req`
 

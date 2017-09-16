@@ -7,7 +7,7 @@
   <h3>User component: </h3>
 
 
-  <div>
+  <div class="separate-block">
     <form (submit)="addHobby(hobby.value)">
       <div>
         <label for="hobby">Hobby:</label>
@@ -23,10 +23,11 @@
 
   </div>
 
-  <div>
+  <div class="separate-block">
 
     <button class="btn btn-success" (click)="toggleEdit()">Click me to Toggle edit user form</button>
     <div *ngIf=isEdit>
+      <h4>Test 2-way-binding ( updates the data auto in the memory + on the screen )</h4>
       <form>
         <div>
           <label for="name">Name: </label><br>
@@ -58,31 +59,34 @@
   </div>
 
 
-  <div>
+  <div class="separate-block">
     <h4>Test bind click event and update the name field</h4>
     <button class="btn btn-primary" (click)="onClick()">Click me: change the name Tom to Alfred</button>
   </div>
 
-  <h4>Test string interpolation {{ keyword }}</h4>
-  <div class="row">
-    <div class="card col-12">
-      <div class="card-block">
-        <h4 class="card-title">My name is: {{name}}. I'm {{age}} years old.</h4>
-        <p class="card-text">You can reach at: {{email}}</p>
-        <p class="card-text">Address: {{address.street}} {{address.city}}, {{address.state}}</p>
+  <div class="separate-block">
+    <h4>Test string interpolation {{ keyword }}</h4>
+    <div class="row">
+      <div class="card col-12">
+        <div class="card-block">
+          <h4 class="card-title">My name is: {{name}}. I'm {{age}} years old.</h4>
+          <p class="card-text">You can reach at: {{email}}</p>
+          <p class="card-text">Address: {{address.street}} {{address.city}}, {{address.state}}</p>
+        </div>
       </div>
     </div>
   </div>
 
-
-  <h4>fetch async user data</h4>
-  <div class="row">
-    <div class="card col-6" *ngFor="let user of users; let i = index">
-      <img class="card-img-top" src="http://placehold.it/150/92c952" alt="img">
-      <div class="card-block">
-        <h4 class="card-title">{{ user.name }}</h4>
-        <p class="card-text">{{ user.email }}</p>
-        <a href="{{ user.website }}" class="btn btn-primary">Go to user website</a>
+  <div class="separate-block">
+    <h4>fetch async user data</h4>
+    <div class="row">
+      <div class="card col-6" *ngFor="let user of users; let i = index">
+        <img class="card-img-top" src="http://placehold.it/150/92c952" alt="img">
+        <div class="card-block">
+          <h4 class="card-title">{{ user.name }}</h4>
+          <p class="card-text">{{ user.email }}</p>
+          <a href="{{ user.website }}" class="btn btn-primary">Go to user website</a>
+        </div>
       </div>
     </div>
   </div>
